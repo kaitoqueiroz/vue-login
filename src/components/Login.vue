@@ -9,7 +9,7 @@
 
     <div class="form-group">
       <label for="username">
-        {{ 'Username' + username }}
+        {{ 'Username' }}
       </label>
       <input
         type="text"
