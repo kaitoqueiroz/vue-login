@@ -141,7 +141,9 @@ export default {
         this.validPassword = true;
       }, 500);
     },
-    async login() {
+    async login(event) {
+      event.preventDefault();
+
       this.processingLogin = true;
       this.loginSuccessful = false;
       this.authError = null;
