@@ -1,4 +1,4 @@
-# Boldking login example
+# Vuejs login example
 
 #### > [Live version](https://kaitoqueiroz.github.io/vue-login)
 
