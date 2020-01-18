@@ -9,20 +9,20 @@
 
     <div class="form-group">
       <label for="username">
-        {{ 'Username' }}
+        {{ 'Username' + username }}
       </label>
       <input
         type="text"
         id="username"
-        v-model="username"
+        :value="username"
         class="form-control"
-        v-bind:class="{
+        :class="{
           'is-invalid': usernameErrorMessage && !validUsername,
           'is-valid': validUsername,
         }"
         placeholder="Username"
         autofocus
-        v-on:input="validateUser"
+        @input="validateUser"
       >
       <small v-if="!validUsername" class="form-text text-danger">
         {{ usernameErrorMessage }}
@@ -37,14 +37,14 @@
       <input
         type="password"
         id="password"
-        v-model="password"
+        :value="password"
         class="form-control"
         placeholder="Password"
-        v-bind:class="{
+        :class="{
           'is-invalid': passwordErrorMessage && !validPassword,
           'is-valid': validPassword,
         }"
-        v-on:input="validatePassword"
+        @input="validatePassword"
       >
       <small v-if="!validPassword" class="form-text text-danger">
         {{ passwordErrorMessage }}
@@ -54,7 +54,7 @@
     <button
       class="btn btn-lg btn-primary btn-block text-white"
       type="submit"
-      v-bind:disabled="invalidForm"
+      :disabled="invalidForm"
     >
       <div class="spinner-border text-light" role="status" v-if="processingLogin">
         <span class="sr-only">Loading...</span>
@@ -99,7 +99,8 @@ export default {
     processingLogin: false,
   }),
   methods: {
-    validateUser() {
+    validateUser(event) {
+      this.username = event.target.value;
       this.loginSuccessful = false;
       this.authError = null;
       this.validUsername = false;
@@ -114,9 +115,10 @@ export default {
         } catch (error) {
           this.usernameErrorMessage = error.message;
         }
-      }, 500);
+      }, 800);
     },
-    validatePassword() {
+    validatePassword(event) {
+      this.password = event.target.value;
       this.loginSuccessful = false;
       this.authError = null;
       this.validPassword = false;
@@ -139,7 +141,7 @@ export default {
         }
 
         this.validPassword = true;
-      }, 500);
+      }, 800);
     },
     async login(event) {
       event.preventDefault();
