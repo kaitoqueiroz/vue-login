@@ -1,4 +1,6 @@
-# Boldking login example
+# Vuejs login example
+
+#### > [Live version](https://kaitoqueiroz.github.io/vue-login)
 
 ## Project setup
 Make sure that you have installed globally in your machine `@vue/cli` and `@vue/cli-service-global`
