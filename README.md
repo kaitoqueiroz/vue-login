@@ -1,6 +1,12 @@
-# boldking
+# Boldking login example
 
 ## Project setup
+Make sure that you have installed globally in your machine `@vue/cli` and `@vue/cli-service-global`
+```
+npm install -g @vue/cli @vue/cli-service-global
+```
+
+Install the dependences
 ```
 npm install
 ```
